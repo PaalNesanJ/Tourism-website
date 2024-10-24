@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tourism Website</title>
+    <link rel="stylesheet" href="tourism.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="header-container">
+            <h1 style="color: aliceblue;" id="mainhead">ADVENTOUR TOURISM</h1>
+
+            <!-- Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link" onclick="openAboutModal()">About</a>
+                <a href="#" class="nav-link" onclick="openContactModal()">Contact</a>
+                <button onclick="openSignInModal()" class="nav-link orange-box">Sign In</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="filters-container">
+            <h2>TOURISM SPOTS:</h2>
+            <select id="tourism-type-filter" onchange="filtertourism()">
+                <option value="all">All</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Goa">Goa</option>
+                <option value="Bhutan">Bhutan</option>
+            </select>
+
+            <h2>Price Range:</h2>
+            <select id="price-range-filter" onchange="filtertourism()">
+                <option value="all">All</option>
+                <option value="low">$0 - $300</option>
+                <option value="mid">$301 - $600</option>
+                <option value="high">$600+</option>
+            </select>
+        </div>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search" placeholder="Search tourism..." aria-label="Search tourism" oninput="filtertourism()">
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="container">
+        <div class="text">
+            <h2>We have the best services available for you!</h2>
+        </div>
+        <div class="rowitems">
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\1a.jpg" alt="Flight Services">
+                </div>
+                <h4>Flight Services</h4>
+                <p>Arrival and Departure</p>
+            </div>
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\2a.jpg" alt="Food Services">
+                </div>
+                <h4>Food Services</h4>
+                <p>Catering</p>
+            </div>
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\3a.jpg" alt="Travel Services">
+                </div>
+                <h4>Travel Services</h4>
+                <p>Pick-up/drop</p>
+            </div>
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\4a.jpg" alt="Hotel Services">
+                </div>
+                <h4>Hotel Services</h4>
+                <p>Check-in/out</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="locations" id="locations">
+        <div class="package-title">
+            <h2>Locations</h2>
+        </div>
+
+        <div class="location-content">
+            <a href="./locations.html">
+                <div class="col-content">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\l1.jpg" alt="">
+                    <h5>India</h5>
+                    <p>Kashmir</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#istanbul">
+                <div class="col-content">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\l2.jpg" alt="">
+                    <h5>Turkey</h5>
+                    <p>Istanbul</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#paris">
+                <div class="col-content">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\l3.jpg" alt="">
+                    <h5>France</h5>
+                    <p>Paris</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#bali">
+                <div class="col-content">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\l4.jpg" alt="">
+                    <h5>Indonesia</h5>
+                    <p>Bali</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#dubai">
+                <div class="col-content">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\l5.jpg" alt="">
+                    <h5>United Arab Emirates</h5>
+                    <p>Dubai</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#geneva">
+                <div class="col-content">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\l6.jpg" alt="">
+                    <h5>Switzerland</h5>
+                    <p>Geneva</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#port-blair">
+                <div class="col-content">
+                    <img src="C:\Users\paaln\Desktop\html toturaial\l7.jpg" alt="">
+                    <h5>Andaman & Nicobar</h5>
+                    <p>Port Blair</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Available tourism Section -->
+    <section class="tourism-section" id="tourism">
+        <h2 style="color: black;">TOURISM SPOTS</h2>
+        <br><br>
+        <div id="no-results-message" style="display: none; text-align: center; color: red;">No tourism found related to your search.</div>
+
+        <!-- Indonesia Section -->
+        <CENTER><h3 style="color: black;">Indonesia</h3></CENTER>
+        <div class="tourism-list">
+            <div class="tourism-card" data-type="Indonesia">
+                <img src="image1.jpeg" alt="Bali">
+                <div class="tourism-details">
+                    <center><h4>Bali</h4>
+                        <p>$300 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span> (3.0)
+                        </div>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></center>
+                </div>
+            </div>
+
+            <div class="tourism-card" data-type="Indonesia">
+                <img src="image2.jpeg" alt="Sunny Shores tourism">
+                <div class="tourism-details">
+                    <center><h3>Jakarta</h3>
+                        <p>$550 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span> (4.0)
+                        </div>
+                        <p>Spacious tourism with direct beach access.</p>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></center>
+                </div>
+            </div>
+
+            <div class="tourism-card" data-type="Indonesia">
+                <img src="image3.jpeg" alt="Tropical Breeze tourism">
+                <div class="tourism-details">
+                    <center><h3>Borobudur Temple</h3>
+                        <p>$300 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span> (3.5)
+                        </div>
+                        <p>Modern tourism with beautiful ocean views.</p>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></center>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        <!-- Dubai Section -->
+        <center><h3 style="color: black;">Dubai</h3></center>
+        <div class="tourism-list">
+            <div class="tourism-card" data-type="Dubai">
+                <img src="image4.jpeg" alt="Burj Khalifa">
+                <center>
+                    <div class="tourism-details">
+                    <h4>Burj Khalifa</h4>
+                    <p>$400 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> (4.0)
+                    </div>
+                    <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button>
+                </div></center>
+                
+            </div>
+
+            <div class="tourism-card" data-type="Dubai">
+                <img src="image5.jpeg" alt="Serenity Cabin">
+                <div class="tourism-details">
+                    <center><h3>Dubai aquarium</h3>
+                        <p>$520 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa-star"></span> (4.5)
+                        </div>
+                        <p>Quiet cabin nestled in the mountains.</p>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></div></center>
+                
+            </div>
+
+            <div class="tourism-card" data-type="Dubai">
+                <img src="image6.jpeg" alt="Majestic Peaks Lodge">
+                <div class="tourism-details">
+                    <center><h3>Majestic Peaks Lodge</h3>
+                        <p>$650 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa-star checked"></span>
+                            <span class="fa-star"></span>
+                            <span class="fa-star"></span> (4.8)
+                        </div>
+                        <p>Luxurious lodge with stunning views.</p>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></div></center>
+                
+            </div>
+        </div>
+
+        </div>
+
+        <!-- Goa Section -->
+        <center><h3 style="color: black;">Goa</h3></center>
+        <div class="tourism-list">
+            <div class="tourism-card" data-type="Goa">
+                <img src="image7.jpeg" alt="Miramar Beach">
+                <center><div class="tourism-details">
+                    <h4>Miramar Beach</h4>
+                    <p>$200 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa-star checked"></span>
+                        <span class="fa-star"></span>
+                        <span class="fa-star"></span> (3.0)
+                    </div>
+                    <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></div></center>
+                
+            </div>
+
+            <div class="tourism-card" data-type="Goa">
+                <img src="image8.jpeg" alt="Paradise Bay tourism">
+                <center><div class="tourism-details">
+                    <h3>Paradise Bay tourism</h3>
+                    <p>$300 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa-star"></span> (4.9)
+                    </div>
+                    <p>Modern tourism with private beach and spa.</p>
+                    <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></div></center>
+                
+            </div>
+
+            <div class="tourism-card" data-type="Goa">
+                <img src="image9.jpeg" alt="Seaside Retreat">
+                <center><div class="tourism-details">
+                    <h3>Dudhsagar Falls</h3>
+                    <p>$550 / night</p>
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa-star"></span>
+                        <span class="fa-star"></span> (4.5)
+                    </div>
+                    <p>Luxury tourism with stunning ocean views.</p>
+                    <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button></div></center>
+                
+            </div>
+        </div>
+
+        </div>
+
+        <!-- Bhutan Section -->
+        <center><h2>Bhutan</h2></center>
+            <div class="tourism-list">
+                <div class="tourism-card" data-type="Bhutan">
+                    <img src="image10.jpeg" alt="Tropical Island tourism">
+                    <center><div class="tourism-details">
+                        <h3> Buddha Statue</h3>
+                        <p>$450 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span> (4.5)
+                        </div>
+                        <p>Buddha statue in the mountains of Bhutan</p>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button>
+                    </div></center>
+                </div>
+                <div class="tourism-card" data-type="Bhutan">
+                    <img src="image11.jpeg" alt="Island Escape">
+                    <center><div class="tourism-details">
+                        <h3> Tiger Nest</h3>
+                        <p>$900 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span> (4.7)
+                        </div>
+                        <p>The popular legend of the Taktsang monastery</p>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button>
+                    </div></center>
+                </div>
+                <div class="tourism-card" data-type="Bhutan">
+                    <img src="image12.jpeg" alt="Coastal Bliss tourism">
+                    <center><div class="tourism-details">
+                        <h3> Dochula</h3>
+                        <p>$580 / night</p>
+                        <div class="rating">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span> (4.6)
+                        </div>
+                        <p>It serves as a reminder of the sacrifices made by Bhutanese soldiers and is a symbol of the country's commitment to peace and stability</p>
+                        <button class="book-btn" onclick="openBookingModal('Paradise Bay tourism')">Book Now</button>
+                    </div></center>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="app-footer">
+        <p>&copy; 2024 Adventour tourism. All rights reserved.</p>
+    </footer>
+
+   <!-- Buttons to Open Modals -->
+<button onclick="openAboutModal()">About Us</button>
+<button onclick="openContactModal()">Contact Us</button>
+<button onclick="openSignInModal()">Sign In</button>
+
+<!-- About Modal -->
+<div id="about-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeAboutModal()">&times;</span>
+        <h2>About Adventour tourism</h2>
+        <p>Welcome to Adventour Tours, your premier online tourism site for curated travel experiences.</p> 
+        <p>Our focus is on promoting sustainable tourism and supporting local economies. Whether you’re looking for luxury escapes or eco-friendly getaways, we’ve got something for everyone.</p> 
+        <ul> 
+            <li><strong>Handpicked tourisms:</strong> Each tourism is selected for quality and unique charm.</li>
+            <li><strong>Sustainable Practices:</strong> Many of our properties promote eco-friendly initiatives.</li>
+            <li><strong>Customer Support:</strong> We're here to assist you 24/7.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeContactModal()">&times;</span>
+        <h2>Contact Us</h2>
+        <div class="contact-details">
+            <h3>Phone:</h3>
+            <p><a href="tel:+91 9488524488">+91 9488524488</a></p>
+            <h3>Email:</h3>
+            <p><a href="mailto:tourismupport@example.com">tourismupport@example.com</a></p>
+            <h3>Follow Us:</h3>
+            <div class="social-links">
+                <a href="https://www.instagram.com/_paal_nesan_" target="_blank"><img src="Instagram.webp" alt="Instagram" class="social-icon"></a>
+                <a href="https://github.com/PaalNesanJ" target="_blank"><img src="github.webp" alt="GitHub" class="social-icon"></a>
+                <a href="https://www.linkedin.com/in/paal-nesan-301986249/" target="_blank"><img src="linkedin.webp" alt="LinkedIn" class="social-icon"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sign In Modal -->
+<div id="signin-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSignInModal()">&times;</span>
+        <h2>Sign In</h2>
+        <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Sign In</button>
+        </form>
+    </div> 
+</div>
+<!-- Booking Modal -->
+<div id="booking-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBookingModal()">&times;</span>
+        <h2>Booking Details</h2>
+        <form id="booking-form" onsubmit="submitBooking(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            <br>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <label for="travel-date">Travel Date:</label>
+            <input type="date" id="travel-date" name="travel-date" required>
+            <br>
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="total-travelers">Total Travelers:</label>
+            <input type="number" id="total-travelers" name="total-travelers" required>
+            <br>
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+</div>
+<!-- Confirmation Modal -->
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeConfirmationModal()">&times;</span>
+        <h2>Booking Confirmation</h2>
+        <div id="confirmation-details"></div>
+        <button onclick="closeConfirmationModal()">Close</button>
+    </div>
+</div>
+
+
+<script src="tourism.js"></script>
+</body>
+</html>
